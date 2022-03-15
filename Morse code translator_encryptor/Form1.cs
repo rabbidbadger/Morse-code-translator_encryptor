@@ -71,7 +71,7 @@ namespace Morse_code_translator_encryptor
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace Morse_code_translator_encryptor
             String userInput = Console.ReadLine();
             foreach (char i in userInput)
 
-            
+
                 for (int i = 0; i < userInput.Length; i++)
                 {
                     if (i > 0)
@@ -94,38 +94,33 @@ namespace Morse_code_translator_encryptor
                     if (!MorseCode.ContainsKey(c))
                         continue;
                     Console.Write(MorseCode);
-            }
+                }
 
 
         }
 
-            private void encode_decode_TextChanged(object sender, EventArgs e)
+        private void encode_decode_TextChanged(object sender, EventArgs e)
+        { 
+        
+           
+
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+
+        {
 
             {
-
-
-
-                {
-                    Console.WriteLine(MorseCode);
-                }
-            }
-
-            private void button1_Click(object sender, EventArgs e)
-
-            {
-            userInput = Console.ReadLine();
-                
-
-                    for (int i = 0; i < userInput.Length; i++)
-                    {
                 Console.WriteLine(userInput);
 
-                }
-
-
-
-
-
             }
+
+
+
+
+
         }
+    }
+}
     
