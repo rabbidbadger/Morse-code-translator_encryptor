@@ -81,11 +81,12 @@ namespace Morse_code_translator_encryptor
 
         private void userInput_TextChanged(object sender, EventArgs e)
         {
-            String userInput = Console.ReadLine();
-            foreach (char i in userInput)
-
-
-                for (int i = 0; i < userInput.Length; i++)
+            string v = Console.ReadLine();
+            var userInput = v;
+            foreach (char L in userInput)
+            {
+                const int V = 0;
+                for (int i = V; i < userInput.Length; i++)
                 {
                     if (i > 0)
                         Console.Write('/');
@@ -95,23 +96,35 @@ namespace Morse_code_translator_encryptor
                         continue;
                     Console.Write(MorseCode);
                 }
-
-
+            }
         }
 
         private void encode_decode_TextChanged(object sender, EventArgs e)
         {
-            var Dictionary2 = Dictionary.ToDictionary
-                (
-                (KV) => KV.Value,
-            (KV)=>KV.Key);
-            foreach (var in Dictionary)
-                Console.WriteLine($"key:{kV.Key}");
+            var Dictionary2 = MorseCode.ToDictionary((kv) => kv.Value, (kv) => kv.Key); 
+            NewMethod(Dictionary2);
 
-            
+            Console.WriteLine("Dictionary");
+            foreach (var kv in MorseCode)
+            {
+                Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
+            }
+
+            Console.WriteLine("Dictionary2");
+            foreach (var kv in Dictionary2)
+            {
+                Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
+            }
+
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private static void NewMethod(object Dictionary2)
+        {
+            Console.WriteLine(Dictionary2);
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
 
         {
 
