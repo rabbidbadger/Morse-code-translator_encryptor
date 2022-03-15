@@ -100,9 +100,13 @@ namespace Morse_code_translator_encryptor
         }
 
         private void encode_decode_TextChanged(object sender, EventArgs e)
-        { 
-        
-           
+        {
+            var Dictionary2 = Dictionary.ToDictionary
+                (
+                (KV) => KV.Value,
+            (KV)=>KV.Key);
+            foreach (var in Dictionary)
+                Console.WriteLine($"key:{kV.Key}");
 
             
         }
