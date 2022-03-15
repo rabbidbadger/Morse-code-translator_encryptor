@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Morse_code_translator_encryptor
+
 {
     public partial class Form1 : Form
     {
-        Dictionary<char, String> MorseCode = new Dictionary<char, String>()
+        Dictionary<char, String> MorseCode = new Dictionary<char, String>()// morse dictionary
 {
     {'A' , ".-"},
     {'B' , "-..."},
@@ -79,65 +80,75 @@ namespace Morse_code_translator_encryptor
 
         }
 
-        private void userInput_TextChanged(object sender, EventArgs e)
-        {
-            string v = Console.ReadLine();
-            var userInput = v;
-            foreach (char L in userInput)
+        private void userInput_TextChanged(object sender, EventArgs e)//iterate through text input to convert to morse
+        
             {
-                const int V = 0;
-                for (int i = V; i < userInput.Length; i++)
-                {
-                    if (i > 0)
-                        Console.Write('/');
+            String toTranslate = Console.ReadLine();
 
-                    char c = userInput[i];
-                    if (!MorseCode.ContainsKey(c))
-                        continue;
+            if (toTranslate == null)
+            {
+                //throw a meaningful exception or give some useful feedback to the user!
+                return;
+            }
+
+            for (int i = 0; i < toTranslate.Length; i++)
+            {
+                if (i > 0)
+                    Console.Write('/');
+
+                char c = toTranslate[i];
+                if (MorseCode.ContainsKey(c))
                     Console.Write(MorseCode);
-                }
             }
+
+            Console.WriteLine();
+
         }
 
-        private void encode_decode_TextChanged(object sender, EventArgs e)
+
+
+
+        private void encode_decode_TextChanged(object sender, EventArgs e)//invert dictionary
         {
-            var Dictionary2 = MorseCode.ToDictionary((kv) => kv.Value, (kv) => kv.Key); 
-            NewMethod(Dictionary2);
-
-            Console.WriteLine("Dictionary");
-            foreach (var kv in MorseCode)
-            {
-                Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
-            }
-
-            Console.WriteLine("Dictionary2");
-            foreach (var kv in Dictionary2)
-            {
-                Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
-            }
-
-
+            Console.WriteLine(MorseCode);
         }
 
-        private static void NewMethod(object Dictionary2)
-        {
-            Console.WriteLine(Dictionary2);
-        }
+
 
         private void Button1_Click(object sender, EventArgs e)
 
         {
 
             {
-                Console.WriteLine(userInput);
 
+
+                    var Dictionary2 = MorseCode.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
+                    
+
+
+                    Console.WriteLine("MorseCode");
+
+                    foreach (var kv in MorseCode)
+                    {
+                        Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
+                    }
+
+                    Console.WriteLine("Dictionary2");
+                    foreach (var kv in Dictionary2)
+                    {
+                        Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
+                    }
+
+                }
             }
+        }
+    
 
 
 
 
 
         }
-    }
-}
+
+    
     
