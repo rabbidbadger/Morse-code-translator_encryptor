@@ -7,62 +7,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Morse_code_translator_encryptor
 {
     public partial class Form1 : Form
     {
-        Dictionary<char, String> MorseCode = new Dictionary<char, String>()
+        Dictionary<string, String> toTranslate = new Dictionary<string, String>()// morse dictionary
+        
 {
-    {'A' , ".-"},
-    {'B' , "-..."},
-    {'C' , "-.-."},
-    {'D' , "-.."},
-    {'E' , "."},
-    {'F' , "..-."},
-    {'G' , "--."},
-    {'H' , "...."},
-    {'I' , ".."},
-    {'J' , ".---"},
-    {'K' , "-.-"},
-    {'L' , ".-.."},
-    {'M' , "--"},
-    {'N' , "-."},
-    {'O' , "---"},
-    {'P' , ".--."},
-    {'Q' , "--.-"},
-    {'R' , ".-."},
-    {'S' , "..."},
-    {'T' , "-"},
-    {'U' , "..-"},
-    {'V' , "...-"},
-    {'W' , ".--"},
-    {'X' , "-..-"},
-    {'Y' , "-.--"},
-    {'Z' , "--.."},
-    {'0' , "-----"},
-    {'1' , ".----"},
-    {'2' , "..---"},
-    {'3' , "...--"},
-    {'4' , "....-"},
-    {'5' , "....."},
-    {'6' , "-...."},
-    {'7' , "--..."},
-    {'8' , "---.."},
-    {'9' , "----."},
-    {'.', ".-.-.-"},
-    {',', "--..--" },
-    {' '," " },
-    {'?', "· · - - · ·" },
-    {'!',  "- · - · - -" },
-    {'/', "- · · - ·" },
-    {'&', "· ···" },
-    {':', "- - - · · ·" },
-    {';', "- · - · - ·" },
-    {'=', "- · · · -" },
-    {'-', "- · · · · -" },
-    {'_', "· · - - · -" },
-    {'"', "· - · · - ·" },
+    {"A" , ".-"},
+    {"B" , "-..."},
+    {"C" , "-.-."},
+    {"D" , "-.."},
+    {"E" , "."},
+    {"F" , "..-."},
+    {"G" , "--."},
+    {"H" , "...."},
+    {"I" , ".."},
+    {"J" , ".---"},
+    {"K" , "-.-"},
+    {"L" , ".-.."},
+    {"M" , "--"},
+    {"N" , "-."},
+    {"O" , "---"},
+    {"P" , ".--."},
+    {"Q" , "--.-"},
+    {"R" , ".-."},
+    {"S" , "..."},
+    {"T" , "-"},
+    {"U" , "..-"},
+    {"V" , "...-"},
+    {"W" , ".--"},
+    {"X" , "-..-"},
+    {"Y" , "-.--"},
+    {"Z" , "--.."},
+    {"0" , "-----"},
+    {"1" , ".----"},
+    {"2" , "..---"},
+    {"3" , "...--"},
+    {"4" , "....-"},
+    {"5" , "....."},
+    {"6" , "-...."},
+    {"7" , "--..."},
+    {"8" , "---.."},
+    {"9" , "----."},
+    {".", ".-.-.-"},
+    {",", "--..--" },
+    {" "," " },
+    {"?", "· · - - · ·" },
+    {"!",  "- · - · - -" },
+    {"/", "- · · - ·" },
+    {"&", "· ···" },
+    {":", "- - - · · ·" },
+    {";", "- · - · - ·" },
+    {"=", "- · · · -" },
+    {"-", "- · · · · -" },
+    {"_", "· · - - · -" },
+   
+
 
 
 
@@ -79,33 +82,73 @@ namespace Morse_code_translator_encryptor
 
         }
 
-        private void userInput_TextChanged(object sender, EventArgs e)
-        {
-            string v = Console.ReadLine();
-            var userInput = v;
-            foreach (char L in userInput)
-            {
-                const int V = 0;
-                for (int i = V; i < userInput.Length; i++)
-                {
-                    if (i > 0)
-                        Console.Write('/');
+        private void userInput_TextChanged(object sender, EventArgs e)//iterate through text input to convert to morse
 
-                    char c = userInput[i];
-                    if (!MorseCode.ContainsKey(c))
-                        continue;
-                    Console.Write(MorseCode);
-                }
+        {
+
+
+
+
+        }
+
+
+
+
+        private void encode_decode_TextChanged(object sender, EventArgs e)//invert dictionary
+        {
+            {
+
+               
+                
+                
+
             }
         }
 
-        private void encode_decode_TextChanged(object sender, EventArgs e)
-        {
-            var Dictionary2 = MorseCode.ToDictionary((kv) => kv.Value, (kv) => kv.Key); 
-            NewMethod(Dictionary2);
 
-            Console.WriteLine("Dictionary");
-            foreach (var kv in MorseCode)
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            string morseCode;
+            morseCode = userInput.Text.ToUpper();
+
+
+            string translated = "";
+            string translatedInput = "";
+
+            KeyPreview = true;
+
+            if (userInput == null)
+            {
+                //throw a meaningful exception or give some useful feedback to the user!
+                return;
+            }
+
+            for (int i = 0; i < morseCode.Length; i++)
+            {
+                if (i > 0)
+                    Console.WriteLine('/');
+
+                string c = morseCode[i].ToString();
+                if (this.toTranslate.ContainsKey(c))
+
+                {
+                    toTranslate.TryGetValue(c, out translated);
+                    translatedInput += translated + " ";
+                }
+            }
+
+            encode_decode.Text = (translatedInput);
+
+
+
+
+            var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
+
+
+
+
+            foreach (var kv in this.toTranslate)
             {
                 Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
             }
@@ -118,26 +161,15 @@ namespace Morse_code_translator_encryptor
 
 
         }
-
-        private static void NewMethod(object Dictionary2)
-        {
-            Console.WriteLine(Dictionary2);
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-
-        {
-
-            {
-                Console.WriteLine(userInput);
-
-            }
-
-
-
-
-
-        }
     }
 }
+    
+
+
+
+
+
+        
+
+    
     
