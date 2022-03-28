@@ -40,6 +40,7 @@ namespace Morse_code_translator_encryptor
             // userInput
             // 
             this.userInput.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.userInput.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.userInput.Location = new System.Drawing.Point(13, 47);
             this.userInput.Multiline = true;
             this.userInput.Name = "userInput";
