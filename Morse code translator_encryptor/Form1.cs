@@ -157,9 +157,14 @@ namespace Morse_code_translator_encryptor
                     Console.WriteLine("Dictionary2");
                     foreach (var kv in Dictionary2)
                     {
-                        Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
+                        decoded.Text=($"Key: {kv.Key} Value: {kv.Value}");
                     }
 
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
         }
     }
