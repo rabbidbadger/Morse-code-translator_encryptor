@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 
 namespace Morse_code_translator_encryptor
+
 {
     public partial class Form1 : Form
     {
@@ -153,11 +154,11 @@ namespace Morse_code_translator_encryptor
                 Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
             }
 
-            Console.WriteLine("Dictionary2");
-            foreach (var kv in Dictionary2)
-            {
-                Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
-            }
+                    Console.WriteLine("Dictionary2");
+                    foreach (var kv in Dictionary2)
+                    {
+                        Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
+                    }
 
 
         }
