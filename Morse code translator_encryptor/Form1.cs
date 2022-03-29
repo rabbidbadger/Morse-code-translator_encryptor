@@ -91,7 +91,7 @@ namespace Morse_code_translator_encryptor
 
 
 
-        private void encode_decode_TextChanged(object sender, EventArgs e)//invert dictionary
+        private void encode_decode_TextChanged(object sender, EventArgs e)
         {
             {
 
@@ -116,7 +116,7 @@ namespace Morse_code_translator_encryptor
             KeyPreview = true;
 
 
-              
+
 
             for (int i = 0; i < morseCode.Length; i++)
             {
@@ -149,84 +149,88 @@ namespace Morse_code_translator_encryptor
                     decoded.Text = ($"Key: {kv.Key} Value: {kv.Value}");
                 }
 
+
+
+
                 {
 
 
-                    {
+                    object GCD = null;
+
+                    int a;
+                    int h;
+                    int temporary;
+                    int e;
 
 
-                        object GCD = null;
+                    while
+                         (h < 0) ;
 
-                        int a;
-                        int h;
-                        int temp;
-                        int e;
+                    temporary = a % h;
+                    if (temporary == 0) ;
 
 
-                        while
-                             (h < 0) ;
-
-                        temp = a % h;
-                        if (temp == 0) ;
-                      
-                    
-                        a = h;
-                        h = temp;
+                    a = h;
+                    h = temporary;
 
 
 
 
-                        // Two random prime numbers
-                        Double p = 3;
-                        Double q = 7;
+                    // Two random prime numbers for use in the key/encyption process
+                    Double p = 3;
+                    Double q = 7;
 
-                        // First part of public key:
-                        Double n = p * q;
+                    // First part of public key:
+                    Double n = p * q;
 
-                        // Finding other part of public key.
-                        // e stands for encrypt
-                        {
-                            Double e = 2;
-                            Double phi = (p - 1) * (q - 1);
-                            while (e < phi)
+                    // Find second part of public key.
+                    // e is representative of encrypt
 
-                                // e must be co-prime to phi and
-                                // smaller than phi.
-                                if (GCD(e, phi) == 1)
-                                    break;
-                                else
-                                    e++;
+                    Double e = 2;
+                    Double phi = (p - 1) * (q - 1);
+                    while (e < phi)
+
+                        // e is also co-prime to phi and must be smaller than phi
+
+                        if (GCD(e, phi) == 1)
+                            break;
+                        else
+                            e++;
 
 
 
 
 
-                            // Private key (d stands for decrypt)
-                            // choosing d such that it satisfies
-                            // d*e = 1 + k * totient
+                    // Private key where d is equal to decrypt
 
-                            int k = 2; // A constant value
-                            Double d = (1 + (k * phi)) / e;
+                    // d*e = 1 + k * totient
 
-                            // Message to be encrypted
-                            Double msg = 20;
+                    int k = 2; // A constant value
+                    Double d = (1 + (k * phi)) / e;
 
-                            decoded.Text = ("Message data = %lf" + msg);
+                    // Message to be encrypted
+                    Double msg = 20;
 
-                            // Encryption c = (msg ^ e) % n
-                            Double c = Math.Pow(msg, e);
-                            c = ((msg + e + Math.PI) % (2 * Math.PI)) - Math.PI;
-                            decoded.Text = ("\nEncrypted data = %lf" + c);
+                    decoded.Text = ("Message data = %lf" + msg);
 
-                            // Decryption m = (c ^ d) % n
-                            Double m = Math.Pow(c, d);
-                            m = ((c + d + Math.PI) % (2 * Math.PI)) - Math.PI;
-                            decoded.Text = ("\nOriginal Message Sent = %lf" + m);
+                    // Encryption c = (msg ^ e) % n
+                    Double c = Math.Pow(msg, e);
+                    c = ((msg + e + Math.PI) % (2 * Math.PI)) - Math.PI;
+                    decoded.Text = ("\nEncrypted data = %lf" + c);
 
-                            return;
-                        }
-                    }
+                    // Decryption m = (c ^ d) % n
+                    Double m = Math.Pow(c, d);
+                    m = ((c + d + Math.PI) % (2 * Math.PI)) - Math.PI;
+                    decoded.Text = ("\nOriginal Message Sent = %lf" + m);
 
+                    return;
+
+                }
+            }
+              
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
 
 
