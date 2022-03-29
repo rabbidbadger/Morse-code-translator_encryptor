@@ -227,6 +227,8 @@ namespace Morse_code_translator_encryptor
                         }
                     }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
 
 
