@@ -233,11 +233,24 @@ namespace Morse_code_translator_encryptor
 
                 }
             }
+<<<<<<<<< Temporary merge branch 1
+=========
+              
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
 
 
 
+            }
 
+
+
+
+                }
+            }
+>>>>>>>>> Temporary merge branch 2
         }
     }
 }
