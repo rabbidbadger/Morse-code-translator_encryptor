@@ -167,7 +167,7 @@ namespace Morse_code_translator_encryptor
                          (h < 0) ;
 
                     temporary = a % h;
-                    if (temporary == 0) ;
+                    if (temporary == 0);
 
 
                     a = h;
@@ -230,20 +230,20 @@ namespace Morse_code_translator_encryptor
               
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+
+
+            {
+
+            }
 
 
 
-
-
-
-
-
-                }
+            }
             }
         }
-    }
-}
+
+    
+
 
 
     

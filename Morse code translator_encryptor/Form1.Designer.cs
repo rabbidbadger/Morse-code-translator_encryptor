@@ -133,7 +133,7 @@ namespace Morse_code_translator_encryptor
             this.Controls.Add(this.userInput);
             this.Name = "Form1";
             this.Text = "Decrypted user text";
-            this.Load += new System.EventHandler(this.Form1_Load);
+    
             this.ResumeLayout(false);
             this.PerformLayout();
 
