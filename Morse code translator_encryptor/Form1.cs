@@ -118,7 +118,9 @@ namespace Morse_code_translator_encryptor
 
 
 
+#pragma warning disable CS0162 // Unreachable code detected
             for (int i = 0; i < morseCode.Length; i++)
+#pragma warning restore CS0162 // Unreachable code detected
             {
                 if (i > 0)
                     Console.WriteLine('/');
@@ -157,18 +159,9 @@ namespace Morse_code_translator_encryptor
 
                     object GCD = null;
 
-                    int a;
                     int h;
                     int temporary;
-                    int e;
-
-
-                    while
-                         (h < 0) ;
-
-                    temporary = a % h;
-                    if (temporary == 0) ;
-
+                    int a;
 
                     a = h;
                     h = temporary;
@@ -176,7 +169,20 @@ namespace Morse_code_translator_encryptor
 
 
 
-                    // Two random prime numbers for use in the key/encyption process
+                    while
+                         (h < 0) ;
+
+                    temporary = a % h;
+#pragma warning disable CS0642 // Possible mistaken empty statement
+                    if (temporary == 0) ;
+#pragma warning restore CS0642 // Possible mistaken empty statement
+
+
+
+
+
+
+                        // Two random prime numbers for use in the key/encyption process
                     Double p = 3;
                     Double q = 7;
 
@@ -184,18 +190,18 @@ namespace Morse_code_translator_encryptor
                     Double n = p * q;
 
                     // Find second part of public key.
-                    // e is representative of encrypt
+                    // f is representative of encrypt
 
-                    Double e = 2;
+                    Double f = 2;
                     Double phi = (p - 1) * (q - 1);
-                    while (e < phi)
+                    while (f < phi)
 
-                        // e is also co-prime to phi and must be smaller than phi
+                        // f is also co-prime to phi and must be smaller than phi
 
                         if (GCD(e, phi) == 1)
                             break;
                         else
-                            e++;
+                            f++;
 
 
 
@@ -203,47 +209,41 @@ namespace Morse_code_translator_encryptor
 
                     // Private key where d is equal to decrypt
 
-                    // d*e = 1 + k * totient
+                    // d*f = 1 + k * totient
 
-                    int k = 2; // A constant value
-                    Double d = (1 + (k * phi)) / e;
+                    int k = 2; // represents a constant value
+                    Double d = (1 + (k * phi)) / f;
 
                     // Message to be encrypted
                     Double msg = 20;
 
                     decoded.Text = ("Message data = %lf" + msg);
 
-                    // Encryption c = (msg ^ e) % n
-                    Double c = Math.Pow(msg, e);
-                    c = ((msg + e + Math.PI) % (2 * Math.PI)) - Math.PI;
-                    decoded.Text = ("\nEncrypted data = %lf" + c);
+                    // Encryption c = (msg ^ f) % n
+                    Double u = Math.Pow(msg, f);
+                    u = ((msg + f + Math.PI) % (2 * Math.PI)) - Math.PI;
+                    decoded.Text = ("\nEncrypted data = %lf" + u);
 
-                    // Decryption m = (c ^ d) % n
-                    Double m = Math.Pow(c, d);
-                    m = ((c + d + Math.PI) % (2 * Math.PI)) - Math.PI;
+                    // Decryption m = (u ^ d) % n
+                    Double m = Math.Pow(u, d);
+                    m = ((u + d + Math.PI) % (2 * Math.PI)) - Math.PI;
                     decoded.Text = ("\nOriginal Message Sent = %lf" + m);
 
                     return;
 
                 }
             }
-              
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
 
 
 
 
-
-
-
-                }
-            }
         }
     }
 }
+
+    
+
 
 
     
