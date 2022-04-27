@@ -118,9 +118,9 @@ namespace Morse_code_translator_encryptor
 
 
 
-#pragma warning disable CS0162 // Unreachable code detected
+
             for (int i = 0; i < morseCode.Length; i++)
-#pragma warning restore CS0162 // Unreachable code detected
+
             {
                 if (i > 0)
                     Console.WriteLine('/');
@@ -155,105 +155,145 @@ namespace Morse_code_translator_encryptor
 
 
                 {
+                    double GCD(double a, double h)
+
+                    {
+                        double temporary;
 
 
-                    object GCD = null;
-
-                    int h;
-                    int temporary;
-                    int a;
-
-                    a = h;
-                    h = temporary;
-
-
-
-
-                    while
-                         (h < 0) ;
-
-                    temporary = a % h;
-#pragma warning disable CS0642 // Possible mistaken empty statement
-                    if (temporary == 0) ;
-#pragma warning restore CS0642 // Possible mistaken empty statement
+                        do
+                        {
+                            for (double i = a; i <= 1; i--)
 
 
 
+                                if (a % i == 0 && h % i == 0)
+                                {
+                                    double x = 0;
+                                    x = i;
 
+                                    return x;
+                                }
+                            {
+                                temporary = (a % h);
 
+                                // Two random prime numbers for use in the key/encyption process
+                                Double p = 3;
+                                Double q = 7;
 
-                        // Two random prime numbers for use in the key/encyption process
-                    Double p = 3;
-                    Double q = 7;
+                                // First part of public key:
+                                Double n = p * q;
 
-                    // First part of public key:
-                    Double n = p * q;
+                                // Find second part of public key.
+                                // f is representative of encrypt
 
-                    // Find second part of public key.
-                    // f is representative of encrypt
+                                Double f = 2;
+                                Double phi = (p - 1) * (q - 1);
+                                while (f < phi)
 
-                    Double f = 2;
-                    Double phi = (p - 1) * (q - 1);
-                    while (f < phi)
+                                    // f is also co-prime to phi and must be smaller than phi
 
-                        // f is also co-prime to phi and must be smaller than phi
+                                    if (GCD(f, phi) == 1)
 
-                        if (GCD(e, phi) == 1)
-                            break;
-                        else
-                            f++;
+                                        break;
 
+                                    else
 
+                                        f++;
 
+                                // Private key where d is equal to decrypt
 
+                                // d*f = 1 + k * totient
 
-                    // Private key where d is equal to decrypt
+                                int k = 2; // represents a constant value
+                                Double d = (1 + (k * phi)) / f;
 
-                    // d*f = 1 + k * totient
+                                // Message to be encrypted
+                                Double msg = 20;
 
-                    int k = 2; // represents a constant value
-                    Double d = (1 + (k * phi)) / f;
+                                decoded.Text = ("Message data = %lf" + msg);
 
-                    // Message to be encrypted
-                    Double msg = 20;
+                                // Encryption c = (msg ^ f) % n
+                                Double u = Math.Pow(msg, f);
+                                u = ((msg + f + Math.PI) % (2 * Math.PI)) - Math.PI;
+                                decoded.Text = ("\nEncrypted data = %lf" + u);
 
-                    decoded.Text = ("Message data = %lf" + msg);
+                                // Decryption m = (u ^ d) % n
+                                Double m = Math.Pow(u, d);
+                                m = ((u + d + Math.PI) % (2 * Math.PI)) - Math.PI;
+                                decoded.Text = ("\nOriginal Message Sent = %lf" + m);
+                                while
+                                    (temporary == 0);
+                                
+                                    return (temporary);
+                                
+                                
 
-                    // Encryption c = (msg ^ f) % n
-                    Double u = Math.Pow(msg, f);
-                    u = ((msg + f + Math.PI) % (2 * Math.PI)) - Math.PI;
-                    decoded.Text = ("\nEncrypted data = %lf" + u);
-
-                    // Decryption m = (u ^ d) % n
-                    Double m = Math.Pow(u, d);
-                    m = ((u + d + Math.PI) % (2 * Math.PI)) - Math.PI;
-                    decoded.Text = ("\nOriginal Message Sent = %lf" + m);
-
-                    return;
-
+                            }
+                        }
+                    }
                 }
             }
-<<<<<<<<< Temporary merge branch 1
-=========
-              
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-
-
-
-            }
-
-
-
-
-                }
-            }
->>>>>>>>> Temporary merge branch 2
         }
     }
 }
+
+
+
+
+
+
+
+
+
+                        
+
+                       
+                
+            
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+                        
+    
+
+
+                
+            
+        
+    
+
+
+              
+
+
+        
+
+
+
+
+            
+
+
+
+
+        
+    
+
+
+    
+
 
     
 
