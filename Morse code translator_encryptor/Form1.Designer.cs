@@ -37,6 +37,11 @@ namespace Morse_code_translator_encryptor
             this.label2 = new System.Windows.Forms.Label();
             this.decoded = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button2 = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.translateLoadedFile = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userInput
@@ -68,11 +73,11 @@ namespace Morse_code_translator_encryptor
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(588, 275);
+            this.button1.Location = new System.Drawing.Point(599, 512);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(484, 29);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Press to make the magic happen:";
+            this.button1.Text = "Press to make the magic happen with your own entered text:";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
@@ -118,12 +123,60 @@ namespace Morse_code_translator_encryptor
             this.label3.TabIndex = 8;
             this.label3.Text = "Decrypted user text:";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(588, 212);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(484, 29);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Load File:";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(588, 47);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(484, 149);
+            this.richTextBox1.TabIndex = 10;
+            this.richTextBox1.Text = "";
+            // 
+            // translateLoadedFile
+            // 
+            this.translateLoadedFile.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.translateLoadedFile.Location = new System.Drawing.Point(588, 247);
+            this.translateLoadedFile.Name = "translateLoadedFile";
+            this.translateLoadedFile.Size = new System.Drawing.Size(484, 29);
+            this.translateLoadedFile.TabIndex = 11;
+            this.translateLoadedFile.Text = "Translate Loaded file";
+            this.translateLoadedFile.UseVisualStyleBackColor = true;
+            this.translateLoadedFile.Click += new System.EventHandler(this.translateLoadedFile_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(588, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(229, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Loaded text will appear below:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1108, 553);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.translateLoadedFile);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.decoded);
             this.Controls.Add(this.label2);
@@ -133,7 +186,6 @@ namespace Morse_code_translator_encryptor
             this.Controls.Add(this.userInput);
             this.Name = "Form1";
             this.Text = "Decrypted user text";
-    
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,6 +199,11 @@ namespace Morse_code_translator_encryptor
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox decoded;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button translateLoadedFile;
+        private System.Windows.Forms.Label label4;
     }
 }
 

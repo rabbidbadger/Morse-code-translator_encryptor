@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Morse_code_translator_encryptor
 
@@ -72,6 +68,7 @@ namespace Morse_code_translator_encryptor
         {
             InitializeComponent();
 
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -107,11 +104,16 @@ namespace Morse_code_translator_encryptor
         private void Button1_Click(object sender, EventArgs e)
         {
             string morseCode;
+            string loadedFile;
+
             morseCode = userInput.Text.ToUpper();
+            loadedFile = richTextBox1.Text.ToUpper();
+
 
 
             string translated = "";
             string translatedInput = "";
+        
 
             KeyPreview = true;
 
@@ -133,8 +135,12 @@ namespace Morse_code_translator_encryptor
 
 
 
+
                     encode_decode.Text = (translatedInput);
                 }
+
+
+
                 var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
 
 
@@ -154,104 +160,172 @@ namespace Morse_code_translator_encryptor
 
 
 
+                //{
+                //    double GCD(double a, double h)
+
+                //    {
+                //        double temporary;
+
+
+                //        do
+                //        {
+                //            for (double i = a; i <= 1; i--)
+                //            {
+                //                if (a % i == 0 && h % i == 0)
+                //                {
+                //                    double x = 0;
+                //                    x = i;
+
+                //                    return x;
+                //                }
+                //            }
+
+                //            {
+                //                temporary = (a % h);
+
+                //                // Two random prime numbers for use in the key/encyption process
+                //                Double p = 3;
+                //                Double q = 7;
+
+                //                // First part of public key:
+                //                Double n = p * q;
+
+                //                // Find second part of public key.
+                //                // f is representative of encrypt
+
+                //                Double f = 2;
+                //                Double phi = (p - 1) * (q - 1);
+                //                while (f < phi)
+
+                //                    // f is also co-prime to phi and must be smaller than phi
+
+                //                    if (GCD(f, phi) == 1)
+
+                //                        break;
+
+                //                    else
+
+                //                        f++;
+
+                //                // Private key where d is equal to decrypt
+
+                //                // d*f = 1 + k * totient
+
+                //                int k = 2; // represents a constant value
+                //                Double d = (1 + (k * phi)) / f;
+
+                //                // Message to be encrypted
+                //                Double msg = 20;
+
+                //                decoded.Text = ("Message data = %lf" + msg);
+
+                //                // Encryption c = (msg ^ f) % n
+                //                Double u = Math.Pow(msg, f);
+                //                u = ((msg + f + Math.PI) % (2 * Math.PI)) - Math.PI;
+                //                decoded.Text = ("\nEncrypted data = %lf" + u);
+
+                //                // Decryption m = (u ^ d) % n
+                //                Double m = Math.Pow(u, d);
+                //                m = ((u + d + Math.PI) % (2 * Math.PI)) - Math.PI;
+                //                decoded.Text = ("\nOriginal Message Sent = %lf" + m);
+
+                //            }
+
+
+
+
+                //        }
+
+
+
+
+
+
+
+            }
+        }
+
+        private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+            
+        {
+            
+            string openFilename = "";
+            {
+                if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    double GCD(double a, double h)
+                    openFilename = openFileDialog1.FileName;
+                    this.Text = openFilename;
+                 
+                    //richTextBox1.Text = filename;
+                    try
+                    {
+                        richTextBox1.Text = File.ReadAllText(openFilename);
+                    }
+                    catch (System.IO.IOException ex)
+                    {
+                        MessageBox.Show("Does not compute");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("File does not exist you muppet");
+                }
+
+            }
+        }
+
+                private void translateLoadedFile_Click(object sender, EventArgs e)
+           
+
+        {
+           
+            string translatedLoadedFile = "";
+            string translatedFile = "";
+            string loadedFile = "";
+            loadedFile = richTextBox1.Text.ToUpper();
+
+
+            for (int i = 0; i < loadedFile.Length; i++)
 
                     {
-                        double temporary;
+                        if (i > 0)
+                            Console.WriteLine('/');
 
-
-                        do
+                        string c = loadedFile[i].ToString();
+                        if (this.toTranslate.ContainsKey(c))
                         {
-                            for (double i = a; i <= 1; i--)
+                            toTranslate.TryGetValue(c, out translatedLoadedFile);
+                            translatedFile += translatedLoadedFile + " ";
 
 
 
-                                if (a % i == 0 && h % i == 0)
-                                {
-                                    double x = 0;
-                                    x = i;
 
-                                    return x;
-                                }
-                            {
-                                temporary = (a % h);
-
-                                // Two random prime numbers for use in the key/encyption process
-                                Double p = 3;
-                                Double q = 7;
-
-                                // First part of public key:
-                                Double n = p * q;
-
-                                // Find second part of public key.
-                                // f is representative of encrypt
-
-                                Double f = 2;
-                                Double phi = (p - 1) * (q - 1);
-                                while (f < phi)
-
-                                    // f is also co-prime to phi and must be smaller than phi
-
-                                    if (GCD(f, phi) == 1)
-
-                                        break;
-
-                                    else
-
-                                        f++;
-
-                                // Private key where d is equal to decrypt
-
-                                // d*f = 1 + k * totient
-
-                                int k = 2; // represents a constant value
-                                Double d = (1 + (k * phi)) / f;
-
-                                // Message to be encrypted
-                                Double msg = 20;
-
-                                decoded.Text = ("Message data = %lf" + msg);
-
-                                // Encryption c = (msg ^ f) % n
-                                Double u = Math.Pow(msg, f);
-                                u = ((msg + f + Math.PI) % (2 * Math.PI)) - Math.PI;
-                                decoded.Text = ("\nEncrypted data = %lf" + u);
-
-                                // Decryption m = (u ^ d) % n
-                                Double m = Math.Pow(u, d);
-                                m = ((u + d + Math.PI) % (2 * Math.PI)) - Math.PI;
-                                decoded.Text = ("\nOriginal Message Sent = %lf" + m);
-                                while
-                                    (temporary == 0);
-                                
-                                    return (temporary);
-                                
-                                
-
-                            }
+                            encode_decode.Text = (translatedFile);
                         }
-                    }
+                var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
+
+
+
+
+                foreach (var kv in this.toTranslate)
+                {
+                    Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
+                }
+
+                Console.WriteLine("Dictionary2");
+                foreach (var kv in Dictionary2)
+                {
+                    decoded.Text = ($"Key: {kv.Key} Value: {kv.Value}");
+                }
+            }
                 }
             }
         }
-    }
-}
-
-
-
-
-
-
-
-
-
-                        
-
-                       
-                
-            
-        
     
 
 
@@ -265,47 +339,62 @@ namespace Morse_code_translator_encryptor
 
 
 
-                        
-    
-
-
-                
-            
-        
-    
-
-
-              
-
-
-        
-
-
-
-
-            
-
-
-
-
-        
-    
-
-
-    
-
-
-    
-
-
-
-    
 
 
 
 
 
-        
 
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
