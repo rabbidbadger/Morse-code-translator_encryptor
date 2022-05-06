@@ -132,16 +132,26 @@ namespace Morse_code_translator_encryptor
                 {
                     toTranslate.TryGetValue(c, out translated);
                     translatedInput += translated + " ";
-
-
-
-
                     encode_decode.Text = (translatedInput);
                 }
 
 
 
-                var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
+
+
+
+
+                else if (this.toTranslate.ContainsValue(c))
+                {
+                    toTranslate.TryGetValue(c, out translated);
+                    translatedInput += translated + " ";
+                    encode_decode.Text = (translatedInput);
+                }
+
+
+
+
+                    var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
 
 
 
