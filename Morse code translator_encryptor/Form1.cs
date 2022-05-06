@@ -113,13 +113,13 @@ namespace Morse_code_translator_encryptor
 
             string translated = "";
             string translatedInput = "";
-        
+
 
             KeyPreview = true;
 
 
 
-
+            //iterate through the letters one at a time and create new string containing morse code
 
             for (int i = 0; i < morseCode.Length; i++)
 
@@ -133,44 +133,8 @@ namespace Morse_code_translator_encryptor
                     toTranslate.TryGetValue(c, out translated);
                     translatedInput += translated + " ";
                     encode_decode.Text = (translatedInput);
-                   
+
                 }
-
-
-
-
-
-
-
-                else if (this.toTranslate.ContainsValue(c))
-                {
-                    toTranslate.TryGetValue(c, out translated);
-                    translatedInput += translated + " ";
-                    encode_decode.Text = (translatedInput);
-                   
-                }
-
-
-
-
-                    var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
-
-
-
-
-                foreach (var kv in this.toTranslate)
-                {
-                    Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
-                }
-
-                Console.WriteLine("Dictionary2");
-                foreach (var kv in Dictionary2)
-                {
-                    decoded.Text = ($"Key: {kv.Key} Value: {kv.Value}");
-                }
-
-
-
 
                 //{
                 //    double GCD(double a, double h)
@@ -263,16 +227,16 @@ namespace Morse_code_translator_encryptor
         }
 
         private void button2_Click(object sender, EventArgs e)
-            
+
         {
-            
+
             string openFilename = "";
             {
                 if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     openFilename = openFileDialog1.FileName;
                     this.Text = openFilename;
-                 
+
                     //richTextBox1.Text = filename;
                     try
                     {
@@ -291,55 +255,91 @@ namespace Morse_code_translator_encryptor
             }
         }
 
-                private void translateLoadedFile_Click(object sender, EventArgs e)
-           
+        private void translateLoadedFile_Click(object sender, EventArgs e)
+
 
         {
-           
+
             string translatedLoadedFile = "";
             string translatedFile = "";
             string loadedFile = "";
             loadedFile = richTextBox1.Text.ToUpper();
 
-
+            // move through loaded file looking for key from dictionary to cast into new string translatedFile
             for (int i = 0; i < loadedFile.Length; i++)
 
-                    {
-                        if (i > 0)
-                            Console.WriteLine('/');
+            {
+                if (i > 0)
+                    Console.WriteLine('/');
 
-                        string c = loadedFile[i].ToString();
-                        if (this.toTranslate.ContainsKey(c))
-                        {
-                            toTranslate.TryGetValue(c, out translatedLoadedFile);
-                            translatedFile += translatedLoadedFile + " ";
-
-
-
-
-                            encode_decode.Text = (translatedFile);
-                  
-                        }
-                var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
-
-
-
-
-                foreach (var kv in this.toTranslate)
+                string c = loadedFile[i].ToString();
+                if (this.toTranslate.ContainsKey(c))
                 {
-                    Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
-                }
+                    toTranslate.TryGetValue(c, out translatedLoadedFile);
+                    translatedFile += translatedLoadedFile + " ";
 
-                Console.WriteLine("Dictionary2");
-                foreach (var kv in Dictionary2)
-                {
-                    decoded.Text = ($"Key: {kv.Key} Value: {kv.Value}");
-                    break;
-                }
-            }
+
+                    //transfer translated loaded file to the encode decode text output
+
+                    encode_decode.Text = (translatedFile);
+
                 }
             }
         }
+
+
+        private void translateMorse_Click(object sender, EventArgs e)
+        {
+
+            string loadedFile = "";
+            loadedFile = richTextBox1.Text.ToUpper();
+            string[] morseToConvert = loadedFile.Split(new char[] { '/', ' ' });
+            string converted = "";
+
+            for (int i = 0; i < morseToConvert.Length; i++) 
+            {
+                if (i > 0)
+                    Console.WriteLine('/');
+                string c = morseToConvert[i].ToString();
+                if (this.toTranslate.ContainsKey(c))
+                {
+                    toTranslate.TryGetValue(c, out converted);
+                    loadedFile += morseToConvert + " ";
+                    encode_decode.Text = (converted);
+                    
+                    var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
+
+
+
+
+                    foreach (var kv in this.toTranslate)
+                    {
+                        Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
+                    }
+
+                    Console.WriteLine("Dictionary2");
+                    foreach (var kv in Dictionary2)
+                    {
+                        decoded.Text = ($"Key: {kv.Key} Value: {kv.Value}");
+                        break;
+
+                    }
+
+
+                }
+            }
+
+
+
+
+
+        }
+
+    }
+}
+
+    
+
     
 
 

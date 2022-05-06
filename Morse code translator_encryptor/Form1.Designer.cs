@@ -42,6 +42,7 @@ namespace Morse_code_translator_encryptor
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.translateLoadedFile = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.translateMorse = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userInput
@@ -61,7 +62,7 @@ namespace Morse_code_translator_encryptor
             this.encode_decode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.encode_decode.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.encode_decode.ForeColor = System.Drawing.Color.Red;
-            this.encode_decode.Location = new System.Drawing.Point(13, 215);
+            this.encode_decode.Location = new System.Drawing.Point(13, 395);
             this.encode_decode.Multiline = true;
             this.encode_decode.Name = "encode_decode";
             this.encode_decode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -73,7 +74,7 @@ namespace Morse_code_translator_encryptor
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(599, 512);
+            this.button1.Location = new System.Drawing.Point(12, 194);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(484, 29);
             this.button1.TabIndex = 4;
@@ -98,26 +99,26 @@ namespace Morse_code_translator_encryptor
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(13, 191);
+            this.label2.Location = new System.Drawing.Point(13, 361);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(345, 22);
+            this.label2.Size = new System.Drawing.Size(324, 22);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Encrypted/Decrypted text will be shown below:";
+            this.label2.Text = "Translated text/morse will be shown below:";
             // 
             // decoded
             // 
-            this.decoded.Location = new System.Drawing.Point(12, 395);
+            this.decoded.Location = new System.Drawing.Point(588, 395);
             this.decoded.Multiline = true;
             this.decoded.Name = "decoded";
             this.decoded.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.decoded.Size = new System.Drawing.Size(533, 155);
+            this.decoded.Size = new System.Drawing.Size(498, 146);
             this.decoded.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(12, 372);
+            this.label3.Location = new System.Drawing.Point(602, 372);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 20);
             this.label3.TabIndex = 8;
@@ -130,7 +131,7 @@ namespace Morse_code_translator_encryptor
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(588, 212);
+            this.button2.Location = new System.Drawing.Point(588, 194);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(484, 29);
             this.button2.TabIndex = 9;
@@ -142,18 +143,18 @@ namespace Morse_code_translator_encryptor
             // 
             this.richTextBox1.Location = new System.Drawing.Point(588, 47);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(484, 149);
+            this.richTextBox1.Size = new System.Drawing.Size(484, 141);
             this.richTextBox1.TabIndex = 10;
             this.richTextBox1.Text = "";
             // 
             // translateLoadedFile
             // 
             this.translateLoadedFile.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.translateLoadedFile.Location = new System.Drawing.Point(588, 247);
+            this.translateLoadedFile.Location = new System.Drawing.Point(588, 229);
             this.translateLoadedFile.Name = "translateLoadedFile";
             this.translateLoadedFile.Size = new System.Drawing.Size(484, 29);
             this.translateLoadedFile.TabIndex = 11;
-            this.translateLoadedFile.Text = "Translate Loaded file";
+            this.translateLoadedFile.Text = "Translate Loaded text file";
             this.translateLoadedFile.UseVisualStyleBackColor = true;
             this.translateLoadedFile.Click += new System.EventHandler(this.translateLoadedFile_Click);
             // 
@@ -167,12 +168,24 @@ namespace Morse_code_translator_encryptor
             this.label4.TabIndex = 12;
             this.label4.Text = "Loaded text will appear below:";
             // 
+            // translateMorse
+            // 
+            this.translateMorse.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.translateMorse.Location = new System.Drawing.Point(588, 265);
+            this.translateMorse.Name = "translateMorse";
+            this.translateMorse.Size = new System.Drawing.Size(484, 29);
+            this.translateMorse.TabIndex = 13;
+            this.translateMorse.Text = "Translated Loaded morse code file";
+            this.translateMorse.UseVisualStyleBackColor = true;
+            this.translateMorse.Click += new System.EventHandler(this.translateMorse_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1108, 553);
+            this.Controls.Add(this.translateMorse);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.translateLoadedFile);
             this.Controls.Add(this.richTextBox1);
@@ -204,6 +217,7 @@ namespace Morse_code_translator_encryptor
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button translateLoadedFile;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button translateMorse;
     }
 }
 
