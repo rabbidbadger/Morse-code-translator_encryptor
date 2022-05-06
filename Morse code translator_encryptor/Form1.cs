@@ -132,16 +132,28 @@ namespace Morse_code_translator_encryptor
                 {
                     toTranslate.TryGetValue(c, out translated);
                     translatedInput += translated + " ";
-
-
-
-
                     encode_decode.Text = (translatedInput);
+                   
                 }
 
 
 
-                var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
+
+
+
+
+                else if (this.toTranslate.ContainsValue(c))
+                {
+                    toTranslate.TryGetValue(c, out translated);
+                    translatedInput += translated + " ";
+                    encode_decode.Text = (translatedInput);
+                   
+                }
+
+
+
+
+                    var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
 
 
 
@@ -306,6 +318,7 @@ namespace Morse_code_translator_encryptor
 
 
                             encode_decode.Text = (translatedFile);
+                  
                         }
                 var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
 
@@ -321,6 +334,7 @@ namespace Morse_code_translator_encryptor
                 foreach (var kv in Dictionary2)
                 {
                     decoded.Text = ($"Key: {kv.Key} Value: {kv.Value}");
+                    break;
                 }
             }
                 }
