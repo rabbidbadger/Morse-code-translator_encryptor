@@ -303,9 +303,7 @@ namespace Morse_code_translator_encryptor
                 string c = morseToConvert[i].ToString();
                 if (this.toTranslate.ContainsKey(c))
                 {
-                    toTranslate.TryGetValue(c, out converted);
-                    loadedFile += morseToConvert + " ";
-                    encode_decode.Text = (converted);
+             
                     
                     var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
 
@@ -320,6 +318,10 @@ namespace Morse_code_translator_encryptor
                     Console.WriteLine("Dictionary2");
                     foreach (var kv in Dictionary2)
                     {
+                       
+                        toTranslate.TryGetValue(c, out converted);
+                        loadedFile += converted + " ";
+                        encode_decode.Text = (converted);
                         decoded.Text = ($"Key: {kv.Key} Value: {kv.Value}");
                         break;
 
