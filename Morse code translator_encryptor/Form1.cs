@@ -249,7 +249,7 @@ namespace Morse_code_translator_encryptor
                 }
                 else
                 {
-                    MessageBox.Show("File does not exist you muppet");
+                    MessageBox.Show("You didnt select a file you muppet!!!!!!!");
                 }
 
             }
@@ -293,18 +293,22 @@ namespace Morse_code_translator_encryptor
 
             string loadedFile = "";
             loadedFile = richTextBox1.Text.ToUpper();
-            string[] morseToConvert = loadedFile.Split(new char[] { '/', ' ' });
+            string[] splitMorse = loadedFile.Split(new char[] { ' ' });
             string converted = "";
+       
 
-            for (int i = 0; i < morseToConvert.Length; i++) 
+            for (int i = 0; i < splitMorse.Length; i++) 
             {
                 if (i > 0)
                     Console.WriteLine('/');
-                string c = morseToConvert[i].ToString();
-                if (this.toTranslate.ContainsKey(c))
+                string c = splitMorse[i].ToString();
+                if (this.toTranslate.ContainsValue(c))
+           
+
+
                 {
-             
-                    
+
+
                     var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
 
 
@@ -317,11 +321,13 @@ namespace Morse_code_translator_encryptor
 
                     Console.WriteLine("Dictionary2");
                     foreach (var kv in Dictionary2)
+
                     {
-                       
-                        toTranslate.TryGetValue(c, out converted);
-                        loadedFile += converted + " ";
-                        encode_decode.Text = (converted);
+                        loadedFile += converted + "";
+                        Dictionary2.TryGetValue(c, out converted);
+                     
+                        encode_decode.Text = (loadedFile);
+                        decoded.Text = (loadedFile);
                         decoded.Text = ($"Key: {kv.Key} Value: {kv.Value}");
                         break;
 
