@@ -51,16 +51,17 @@ namespace Morse_code_translator_encryptor
     {"9" , "----."},
     {".", ".-.-.-"},
     {",", "--..--" },
-    {" "," " },
-    {"?", "· · - - · ·" },
-    {"!",  "- · - · - -" },
-    {"/", "- · · - ·" },
-    {"&", "· ···" },
-    {":", "- - - · · ·" },
-    {";", "- · - · - ·" },
-    {"=", "- · · · -" },
-    {"-", "- · · · · -" },
-    {"_", "· · - - · -" },
+    {" ","/" },
+    {"?", "··--··" },
+    {"!",  "-·-·--" },
+    {"/", "-··-·" },
+    {"&", "····" },
+    {":", "---···" },
+    {";", "-·-·-·" },
+    {"=", "-···-" },
+    {"-", "-····-" },
+    {"_", "··--·-" },
+            {"1.","/n" },
 
 
         };
@@ -295,15 +296,17 @@ namespace Morse_code_translator_encryptor
             loadedFile = richTextBox1.Text.ToUpper();
             string[] splitMorse = loadedFile.Split(new char[] { ' ' });
             string converted = "";
-       
+           
 
-            for (int i = 0; i < splitMorse.Length; i++) 
+
+
+            for (int i = 0; i < splitMorse.Length; i++)
             {
                 if (i > 0)
                     Console.WriteLine('/');
                 string c = splitMorse[i].ToString();
                 if (this.toTranslate.ContainsValue(c))
-           
+
 
 
                 {
@@ -325,24 +328,29 @@ namespace Morse_code_translator_encryptor
                     {
                         loadedFile += converted + "";
                         Dictionary2.TryGetValue(c, out converted);
-                     
-                        encode_decode.Text = (loadedFile);
-                        decoded.Text = (loadedFile);
-                        decoded.Text = ($"Key: {kv.Key} Value: {kv.Value}");
-                        break;
+
+                       
+                        {
+                           
+
+                            encode_decode.Text = (loadedFile);
+                            decoded.Text = (loadedFile);
+
+                            break;
+
+                        }
+
 
                     }
-
-
                 }
+
+
+
+
+
             }
 
-
-
-
-
         }
-
     }
 }
 
