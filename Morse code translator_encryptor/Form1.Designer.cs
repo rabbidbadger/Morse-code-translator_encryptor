@@ -175,7 +175,7 @@ namespace Morse_code_translator_encryptor
             this.translateMorse.Name = "translateMorse";
             this.translateMorse.Size = new System.Drawing.Size(484, 29);
             this.translateMorse.TabIndex = 13;
-            this.translateMorse.Text = "Translated Loaded morse code file";
+            this.translateMorse.Text = "Translate Loaded morse code file";
             this.translateMorse.UseVisualStyleBackColor = true;
             this.translateMorse.Click += new System.EventHandler(this.translateMorse_Click);
             // 
