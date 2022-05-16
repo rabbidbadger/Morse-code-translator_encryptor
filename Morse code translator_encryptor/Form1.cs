@@ -124,6 +124,11 @@ namespace Morse_code_translator_encryptor
 
                 string c = morseCode[i].ToString();
                 if (this.toTranslate.ContainsKey(c))
+                { 
+                    continue;
+                
+                }
+                
                 {
                    
                     toTranslate.TryGetValue(c, out translated);
@@ -271,17 +276,21 @@ namespace Morse_code_translator_encryptor
 
                 string c = loadedFile[i].ToString();//string filled with chaaracters from loaded file
                 if (this.toTranslate.ContainsKey(c))//look for key characters from dictionary 
+                    continue;
                 {
                     toTranslate.TryGetValue(c, out translatedLoadedFile);//replace characyers with key from dictionary and output to empty string
                     translatedFile += translatedLoadedFile + " ";//translatedLoadedFile is now contatinated against translatedFile
 
 
+                       
+
                     //transfer translated loaded file to the encode decode text output
 
                     encode_decode.Text = (translatedFile);
-                   
+
 
                 }
+              
             }
         }
 
@@ -294,44 +303,33 @@ namespace Morse_code_translator_encryptor
             string[] splitMorse = loadedFile.Split(new char[] { ' ' });//split the loaded file into individual characters(due to the morse) and allocation of where this occurs
             string converted = "";
 
-
-
-
+            
             for (int i = 0; i < splitMorse.Length; i++)
             {
-                if (i > 0)
-                    Console.WriteLine('/');
-                string c = splitMorse[i].ToString();
-                if (this.toTranslate.ContainsValue(c))
 
+                string c = splitMorse[i].ToString();
+                if (!this.toTranslate.ContainsValue(c))
 
 
                 {
+                    continue;
+                  
+                }
+                var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
 
+                foreach (var kv in Dictionary2)
 
-                    var Dictionary2 = this.toTranslate.ToDictionary((kv) => kv.Value, (kv) => kv.Key);
-
-
-
-
-           
-                    foreach (var kv in Dictionary2)
+                {
+                    loadedFile += converted + "";
+                    Dictionary2.TryGetValue(c, out converted);
+                   
+                    
+                    
 
                     {
-                        loadedFile += converted + "";
-                        Dictionary2.TryGetValue(c, out converted);
-
-
-                        {
-
-
-                            encode_decode.Text = (loadedFile);
-                            decoded.Text = (loadedFile);
-
-                            break;
-
-                        }
-
+                        encode_decode.Text = loadedFile;
+                        decoded.Text = loadedFile;
+                        break;
 
                     }
                 }
