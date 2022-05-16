@@ -52,16 +52,15 @@ namespace Morse_code_translator_encryptor
     {".", ".-.-.-"},
     {",", "--..--" },
     {" ","/" },
-    {"?", "··--··" },
-    {"!",  "-·-·--" },
-    {"/", "-··-·" },
-    {"&", "····" },
-    {":", "---···" },
-    {";", "-·-·-·" },
-    {"=", "-···-" },
-    {"-", "-····-" },
-    {"_", "··--·-" },
-            {"1.","/n" },
+    {"?", "· · - - · ·" },
+    {"!",  "- · - · - -" },
+    {"/", "- · · - ·" },
+    {"&", "· ···" },
+    {":", "- - - · · ·" },
+    {";", "- · - · - ·" },
+    {"=", "- · · · -" },
+    {"-", "- · · · · -" },
+    {"_", "· · - - · -" },
 
 
         };
@@ -104,19 +103,14 @@ namespace Morse_code_translator_encryptor
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            string morseCode;
-            string loadedFile;
-
+          
+            string morseCode=" ";
             morseCode = userInput.Text.ToUpper();
-            loadedFile = richTextBox1.Text.ToUpper();
+            string translated = " ";
+            string translatedInput = " ";
 
 
-
-            string translated = "";
-            string translatedInput = "";
-
-
-            KeyPreview = true;
+          
 
 
 
@@ -131,9 +125,11 @@ namespace Morse_code_translator_encryptor
                 string c = morseCode[i].ToString();
                 if (this.toTranslate.ContainsKey(c))
                 {
+                   
                     toTranslate.TryGetValue(c, out translated);
                     translatedInput += translated + " ";
                     encode_decode.Text = (translatedInput);
+                    
 
                 }
 
@@ -250,7 +246,7 @@ namespace Morse_code_translator_encryptor
                 }
                 else
                 {
-                    MessageBox.Show("You didnt select a file you muppet!!!!!!!");
+                    MessageBox.Show("File does not exist you muppet");
                 }
 
             }
@@ -261,28 +257,29 @@ namespace Morse_code_translator_encryptor
 
         {
 
-            string translatedLoadedFile = "";
-            string translatedFile = "";
-            string loadedFile = "";
+            string translatedLoadedFile = "";//empty string for final morse/text file
+            string translatedFile = "";//empty string 
+            string loadedFile = "";//empty string to be filled by loaded file
             loadedFile = richTextBox1.Text.ToUpper();
 
-            // move through loaded file looking for key from dictionary to cast into new string translatedFile
+            // move through loaded file looking for key from dictionary to cast into empty string translatedFile
             for (int i = 0; i < loadedFile.Length; i++)
 
             {
                 if (i > 0)
                     Console.WriteLine('/');
 
-                string c = loadedFile[i].ToString();
-                if (this.toTranslate.ContainsKey(c))
+                string c = loadedFile[i].ToString();//string filled with chaaracters from loaded file
+                if (this.toTranslate.ContainsKey(c))//look for key characters from dictionary 
                 {
-                    toTranslate.TryGetValue(c, out translatedLoadedFile);
-                    translatedFile += translatedLoadedFile + " ";
+                    toTranslate.TryGetValue(c, out translatedLoadedFile);//replace characyers with key from dictionary and output to empty string
+                    translatedFile += translatedLoadedFile + " ";//translatedLoadedFile is now contatinated against translatedFile
 
 
                     //transfer translated loaded file to the encode decode text output
 
                     encode_decode.Text = (translatedFile);
+                   
 
                 }
             }
@@ -294,9 +291,9 @@ namespace Morse_code_translator_encryptor
 
             string loadedFile = "";
             loadedFile = richTextBox1.Text.ToUpper();
-            string[] splitMorse = loadedFile.Split(new char[] { ' ' });
+            string[] splitMorse = loadedFile.Split(new char[] { ' ' });//split the loaded file into individual characters(due to the morse) and allocation of where this occurs
             string converted = "";
-           
+
 
 
 
@@ -317,21 +314,16 @@ namespace Morse_code_translator_encryptor
 
 
 
-                    foreach (var kv in this.toTranslate)
-                    {
-                        Console.WriteLine($"Key: {kv.Key} Value: {kv.Value}");
-                    }
-
-                    Console.WriteLine("Dictionary2");
+           
                     foreach (var kv in Dictionary2)
 
                     {
                         loadedFile += converted + "";
                         Dictionary2.TryGetValue(c, out converted);
 
-                       
+
                         {
-                           
+
 
                             encode_decode.Text = (loadedFile);
                             decoded.Text = (loadedFile);
