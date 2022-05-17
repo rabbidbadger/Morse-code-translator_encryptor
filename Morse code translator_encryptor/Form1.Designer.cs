@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Morse_code_translator_encryptor
 {
     partial class Form1
@@ -43,6 +45,7 @@ namespace Morse_code_translator_encryptor
             this.translateLoadedFile = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.translateMorse = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userInput
@@ -179,12 +182,24 @@ namespace Morse_code_translator_encryptor
             this.translateMorse.UseVisualStyleBackColor = true;
             this.translateMorse.Click += new System.EventHandler(this.translateMorse_Click);
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.button3.Location = new System.Drawing.Point(12, 229);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(484, 29);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "Traanslate your own morse";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1108, 553);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.translateMorse);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.translateLoadedFile);
@@ -204,6 +219,11 @@ namespace Morse_code_translator_encryptor
 
         }
 
+        private void Decrypt_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
         private System.Windows.Forms.TextBox userInput;
         private System.Windows.Forms.TextBox encode_decode;
@@ -218,6 +238,9 @@ namespace Morse_code_translator_encryptor
         private System.Windows.Forms.Button translateLoadedFile;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button translateMorse;
+        private System.Windows.Forms.Button button3;
+
+        public EventHandler Encrypt_Click { get; private set; }
     }
 }
 
