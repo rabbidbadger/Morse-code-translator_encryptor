@@ -133,6 +133,7 @@ namespace Morse_code_translator_encryptor
             // 
             // button2
             // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.button2.Location = new System.Drawing.Point(588, 194);
             this.button2.Name = "button2";
@@ -152,6 +153,7 @@ namespace Morse_code_translator_encryptor
             // 
             // translateLoadedFile
             // 
+            this.translateLoadedFile.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.translateLoadedFile.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.translateLoadedFile.Location = new System.Drawing.Point(588, 229);
             this.translateLoadedFile.Name = "translateLoadedFile";
@@ -173,6 +175,7 @@ namespace Morse_code_translator_encryptor
             // 
             // translateMorse
             // 
+            this.translateMorse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.translateMorse.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.translateMorse.Location = new System.Drawing.Point(588, 265);
             this.translateMorse.Name = "translateMorse";
@@ -184,12 +187,13 @@ namespace Morse_code_translator_encryptor
             // 
             // button3
             // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.button3.Location = new System.Drawing.Point(12, 229);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(484, 29);
             this.button3.TabIndex = 14;
-            this.button3.Text = "Traanslate your own morse";
+            this.button3.Text = "Translate your own morse";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
